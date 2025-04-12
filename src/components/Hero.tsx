@@ -4,8 +4,9 @@ import SplineCanvas from './SplineCanvas';
 import Tagline from './Tagline';
 import { Button } from '@/components/ui/button';
 
-// Replace this with your actual Spline scene URL
-const SPLINE_SCENE_URL = "https://prod.spline.design/example-scene-url";
+// Use a public demo Spline scene URL that's known to work
+// You should replace this with your own Spline scene URL when you have one
+const SPLINE_SCENE_URL = "https://prod.spline.design/PkmbmZI1k9SqkdZI/scene.splinecode";
 
 const Hero: React.FC = () => {
   return (
@@ -20,6 +21,10 @@ const Hero: React.FC = () => {
       
       {/* Content */}
       <div className="container mx-auto px-4 z-20 text-center mt-16">
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6">
+          <span className="text-unsighted-light">Lighting up</span> the world
+        </h1>
+        
         <Tagline className="mb-12" />
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
