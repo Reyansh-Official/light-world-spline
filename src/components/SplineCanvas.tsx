@@ -1,48 +1,21 @@
 
 import React, { useState } from 'react';
-import Spline from '@splinetool/react-spline';
 
 interface SplineCanvasProps {
-  scene: string;
   className?: string;
 }
 
-const SplineCanvas: React.FC<SplineCanvasProps> = ({ scene, className }) => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [hasError, setHasError] = useState(false);
-
-  const handleLoad = () => {
-    setIsLoading(false);
-  };
-
-  const handleError = () => {
-    console.error("Failed to load Spline scene");
-    setHasError(true);
-    setIsLoading(false);
-  };
-
+const SplineCanvas: React.FC<SplineCanvasProps> = ({ className }) => {
   return (
-    <div className={className}>
-      {isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-12 h-12 border-4 border-unsighted-light border-t-transparent rounded-full animate-spin"></div>
-        </div>
-      )}
-      
-      {hasError ? (
+    <div className={`relative w-full h-full ${className}`}>
+      <div className="absolute inset-0 bg-unsighted-dark">
         <FallbackWaveAnimation />
-      ) : (
-        <Spline 
-          scene={scene} 
-          onLoad={handleLoad}
-          onError={handleError}
-        />
-      )}
+      </div>
     </div>
   );
 };
 
-// Fallback CSS wave animation when Spline fails to load
+// 3D Wave animation background
 const FallbackWaveAnimation: React.FC = () => {
   return (
     <div className="wave-container w-full h-full flex items-center justify-center">

@@ -4,19 +4,15 @@ import SplineCanvas from './SplineCanvas';
 import Tagline from './Tagline';
 import { Button } from '@/components/ui/button';
 
-// Use a public demo Spline scene URL that's known to work
-// You should replace this with your own Spline scene URL when you have one
-const SPLINE_SCENE_URL = "https://prod.spline.design/PkmbmZI1k9SqkdZI/scene.splinecode";
-
 const Hero: React.FC = () => {
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background with gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-unsighted-dark via-unsighted-dark/95 to-unsighted-dark z-10"></div>
       
-      {/* Spline 3D background */}
+      {/* Background animation instead of Spline */}
       <div className="absolute inset-0">
-        <SplineCanvas scene={SPLINE_SCENE_URL} className="w-full h-full" />
+        <SplineCanvas className="w-full h-full" />
       </div>
       
       {/* Content */}
