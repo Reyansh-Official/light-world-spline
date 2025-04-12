@@ -57,35 +57,37 @@ const FallbackWaveAnimation: React.FC = () => {
               height: '2px',
               width: '100%',
               position: 'absolute',
-              transform: `translateY(${i * 5}px)`,
+              transform: `translateY(${i * 5}px) translateZ(${i * 2}px)`,
               opacity: 1 - (i * 0.04),
               animation: 'wave 3s ease-in-out infinite'
             }}
           />
         ))}
       </div>
-      <style jsx>{`
-        @keyframes wave {
-          0% {
-            transform: translateY(0) scaleX(1);
+      <style>
+        {`
+          @keyframes wave {
+            0% {
+              transform: translateY(0) scaleX(1) rotateX(0deg);
+            }
+            50% {
+              transform: translateY(10px) scaleX(0.9) rotateX(5deg);
+            }
+            100% {
+              transform: translateY(0) scaleX(1) rotateX(0deg);
+            }
           }
-          50% {
-            transform: translateY(10px) scaleX(0.9);
+          .wave-animation {
+            position: relative;
+            width: 80%;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1000px;
           }
-          100% {
-            transform: translateY(0) scaleX(1);
-          }
-        }
-        .wave-animation {
-          position: relative;
-          width: 80%;
-          height: 200px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          perspective: 1000px;
-        }
-      `}</style>
+        `}
+      </style>
     </div>
   );
 };
